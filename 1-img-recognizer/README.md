@@ -40,3 +40,79 @@ To explain, let's look at a problem: we want an ML model that looks at images of
 - python package used for creating ml models
 - library built on top of pytorch
 
+# More examples of Deep Learning
+
+### Image Segmentation
+- Given an image, the model needs to identify which segment each pixel belongs to
+- Ex: Given an image of a road from the POV of a driver, segment the image into cars, roads, buildings, trees, and the sky
+
+### Tablular analysis
+- Given a spreadsheet/table, predict what will happen given the columns
+- Used in income prediction
+
+### Collaborative filering
+- Used in recommendation systems
+- What is it:
+  - given that Group A likes Product A
+  - given that Group B likes Product B
+  - if Group A and Group B are similar, recommend Product B to Group A
+  - this is not about demographic similarity. It is about similarity in terms of liking the same kinds of products
+- Example:
+  - When you first open Netflix, it asks you for what you like to watch
+  - You put Demon Slayer and Chainsaw Man
+  - Many people who like these shows may like Hell's Paradise as well
+  - Hence, you get recommended Hell's Paradise
+
+# How are models different from classic programs?
+Program
+```mermaid
+graph LR
+    A[inputs] --> B{program}
+    B ---> C[outputs]
+```
+- program takes inputs
+- program has loops, variables, conditionals, etc.
+- program has outputs
+
+Model
+```mermaid
+graph LR
+    A[inputs] --> B{model}
+    A2[weights] --> B
+    B ---> C[outputs]
+```
+- model takes inputs and weights
+- model is a mathematical function that operates on the inputs and weights
+- model has outputs
+
+# How is a model trained?
+1. The model will not work properly unless the weights for the model are chosen properly. Hence, we iteratively make the weights better. However, at first, we make those weights random.
+```mermaid
+graph LR
+    A[inputs] --> B{model}
+    A2[random weights] --> B
+    B ---> C[outputs]
+```
+
+2. We train our model. Based on the outputs, we get the loss. Loss determines how effective the model was. In image recognition, an effective model would be being able to classify images correctly. If the model is ineffective then we update the weights to be better such that the loss would be better. We do this iteratively until the model becomes good.
+```mermaid
+graph LR
+    A[inputs] --> B{model}
+    A2[better weights] --> B
+    B ---> C[outputs]
+    C ---> D[loss]
+    D -- updates --> A2
+```
+
+  - There are a few reasons why this is hard:
+    - how do you make the weights "better" in each iteration?
+    - can the model be flexible enough to solve your problem? The answer is yes. The mathematical function used in a model is flexible enough to solve any computable function (e.g. generating artworks, translate english to german)
+
+3. Once the model is trained, it looks a lot like a normal program. Once the weights have been turned "good," they can just be incorporated into the model.
+```mermaid
+graph LR
+    A[inputs] --> B{model}
+    B ---> C[outputs]
+```
+
+- Since a trained model takes inputs and has outputs like a program, a model can be used in any arbitrary code. However, deployment is still trickier than with classic programs.
