@@ -116,3 +116,6 @@ graph LR
 ```
 
 - Since a trained model takes inputs and has outputs like a program, a model can be used in any arbitrary code. However, deployment is still trickier than with classic programs.
+
+# GPU RAM vs CPU RAM
+When CPU RAM runs out of memory, it will perform swapping. It will store the data from RAM into the hard drive for later use. GPU RAM does not have swapping. Once it is filled, you're done. With this, make sure to close notebooks that use GPU RAM once you are done.
