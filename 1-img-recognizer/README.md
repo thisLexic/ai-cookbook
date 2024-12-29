@@ -119,3 +119,5 @@ graph LR
 
 # GPU RAM vs CPU RAM
 When CPU RAM runs out of memory, it will perform swapping. It will store the data from RAM into the hard drive for later use. GPU RAM does not have swapping. Once it is filled, you're done. With this, make sure to close notebooks that use GPU RAM once you are done.
+
+Matrix multiplication is a core aspect of teaching a model. GPUs have a special core called a tensor core. These only do one thing: multiply two 4x4 matrices. Tensor cores can do this quickly multiple times which means GPUs perform matrix multiplication extermely fast. Hence, it is faster to create an AI model using GPUs.
